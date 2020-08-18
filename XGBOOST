@@ -1,0 +1,8 @@
+from xgboost import XGBRegressor
+
+
+my_model = XGBRegressor(n_estimators=1000  //maximum number of trees , learning_rate=0.05 //weight of each tree in the ensemble, n_jobs=4 //Parallel computation on your machine(best practice : equal to your cores)
+my_model.fit(X_train, y_train, 
+             early_stopping_rounds=5, //maximum number of detioration cycles to stop adding trees to the ensemble
+             eval_set=[(X_valid, y_valid)], //validation set
+             verbose=False)
